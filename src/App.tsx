@@ -48,7 +48,7 @@ class App extends Component<{}, Appstate> {
         {[...Array(this.state.currentEncounter.encounterRows).keys()].map(() => 
           <div>
                   {[...Array(this.state.currentEncounter.encounterColumns).keys()].map((item, index) => <span>
-                      {index}a
+                      {index}
                     </span>)}
 
           </div>)}
