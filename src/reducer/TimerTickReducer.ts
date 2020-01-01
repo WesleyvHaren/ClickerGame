@@ -5,7 +5,7 @@ import { encounters } from "../entities/Encounter";
 export const calculateNewState = (state: Appstate, timer) => {
     let newState = state;
     if(timer.currentMs() % 1000 === 0){
-      newState = combatTick(state, timer)    
+      newState = combatTick(newState, timer)    
     }
 
     if(timer.currentMs() === state.respawnTimer) {

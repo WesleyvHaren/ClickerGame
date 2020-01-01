@@ -1,4 +1,5 @@
 import Monster from "./Monster";
+import { isAlive } from "./CombatParticipant";
 
 export default class Encounter {
     encounterColumns: number;
@@ -7,6 +8,12 @@ export default class Encounter {
         this.encounterColumns = Math.max(...monsterLocations.map(location => location[1])) + 1;
         this.encounterRows = Math.max(...monsterLocations.map(location => location[0])) + 1;
     }
+
+    getMonster = (column: number, row: number) => this.livingMonsters()[this.monsterLocations.findIndex(location => location[0] === column && location[1] === row)];
+
+    isBeaten = () => this.monsters.filter(isAlive).length === 0;
+
+    livingMonsters = () => this.monsters.filter(isAlive);
 }
 
 export const encounters = {
